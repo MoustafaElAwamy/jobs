@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cluster Team Work Map</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E4DA4'/%3E%3Ctext x='32' y='45' font-family='Arial' font-weight='700' font-size='40' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: white logo bar, Cluster-blue hero, one airy white column of cards; blue is the only accent. */
+:root{
+  --bg:#F4F7FC; --card:#FFFFFF; --fg:#15223A; --muted:#5C6B85; --line:#D7E1F0;
+  --blue:#0E4DA4; --blue-deep:#0B3D83; --blue-soft:#E8EFFA; --blue-ink:#FFFFFF; --ok:#1B7F4C;
+  --font:"IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0D1526; --card:#152139; --fg:#EDF2FA; --muted:#A4B3CC; --line:#2A3A5A;
+  --blue:#0E4DA4; --blue-deep:#0B3D83; --blue-soft:#1A2C4F; --blue-ink:#FFFFFF; --ok:#5CC48C; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0D1526; --card:#152139; --fg:#EDF2FA; --muted:#A4B3CC; --line:#2A3A5A;
+  --blue:#0E4DA4; --blue-deep:#0B3D83; --blue-soft:#1A2C4F; --blue-ink:#FFFFFF; --ok:#5CC48C; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.75}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#FFFFFF}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E3EAF5}
+.topbar .in,.band .in,.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.topbar .in{padding-block:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar img{height:46px;width:auto;display:block}
+.topbar .tag{font-size:14px;color:#5C6B85;font-weight:500}
+.band{background:var(--blue);color:var(--blue-ink)}
+.band .in{padding-block:40px 34px}
+h1{font-size:clamp(27px,4.6vw,36px);line-height:1.3;margin:0 0 12px;font-weight:700;text-wrap:balance}
+.lead{font-size:17px;line-height:1.85;margin:0 0 22px;max-width:620px}
+.facts{display:flex;flex-wrap:wrap;gap:10px}
+.facts span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 16px;font-size:15px;font-weight:500}
+.wrap{padding-block:26px 64px;display:grid;gap:20px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:6px}
+.step b{color:var(--blue);font-size:13px;letter-spacing:.08em}
+.step span{font-size:15px;line-height:1.6}
+@media (max-width:640px){.steps{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;display:grid;gap:22px}
+.card h2{font-size:20px;margin:0;font-weight:700;color:var(--blue)}
+.card h2 small{display:block;font-size:15px;font-weight:400;color:var(--muted);margin-top:4px;line-height:1.6}
+.field{display:grid;gap:8px}
+label{font-weight:600;font-size:17px;line-height:1.5}
+.hint{color:var(--muted);font-size:15px;line-height:1.65}
+.ex{color:var(--muted);font-size:14.5px;line-height:1.65;background:var(--blue-soft);border-radius:10px;padding:10px 14px}
+input[type=text],select,textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.tools{display:grid;gap:12px}
+.tool{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.3fr auto;gap:10px;align-items:start}
+.tool .x{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;width:44px;height:46px;font-size:20px;cursor:pointer}
+@media (max-width:760px){.tool{grid-template-columns:1fr 1fr}.tool .x{justify-self:end}}
+.btn{font:inherit;font-weight:600;font-size:16px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid var(--blue);background:var(--card);color:var(--blue)}
+.btn.primary{background:var(--blue);color:var(--blue-ink);font-size:18px;padding:14px 28px}
+.btn.primary:hover{background:var(--blue-deep)}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.toggle{display:flex;gap:12px;align-items:center;font-weight:600;cursor:pointer;font-size:17px}
+.toggle input{width:22px;height:22px;accent-color:var(--blue)}
+.mgr{display:grid;gap:22px}
+#out{display:grid;gap:14px}
+pre{white-space:pre-wrap;word-break:break-word;font:inherit;font-size:15px;line-height:1.75;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;margin:0;direction:rtl}
+.done{color:var(--ok);font-weight:600}
+.send{font-size:16px;line-height:1.8;margin:0}
+.email{display:inline-block;direction:ltr;font-weight:600;color:var(--blue);user-select:all}
+.warn{color:#B4541B;font-size:15px}
+.foot{color:var(--muted);font-size:14px;text-align:center;margin:0}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background .15s,transform .1s}.btn:active{transform:scale(.98)}}
+</style>
+</head>
+<body style="margin:0">
+
+
+<div dir="rtl">
+<div class="topbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Cluster" width="220" height="93">
+  <span class="tag">خريطة الشغل · أكتوبر 2026</span>
+</div></div>
+
+<header class="band"><div class="in">
+  <h1>خريطة الشغل في Cluster</h1>
+  <p class="lead">بنرتّب الأدوات والـ credits ونوحّد طريقة الشغل بين الفرق، عشان كل حد يشتغل أسهل ويوصل أسرع. ده مش تقييم لحد، ده ترتيب بيت. كل اللي محتاجينه منك إجابات صريحة ومحددة.</p>
+  <div class="facts"><span>١٠ دقايق</span><span>٧ أسئلة</span><span>رد واحد لمديرك</span></div>
+</div></header>
+
+<main class="wrap">
+  <div class="steps">
+    <div class="step"><b>١</b><span>جاوب على الأسئلة بكلامك العادي</span></div>
+    <div class="step"><b>٢</b><span>دوس «جهّز الرد» وانسخه</span></div>
+    <div class="step"><b>٣</b><span>ابعته لمديرك المباشر على WhatsApp</span></div>
+  </div>
+
+  <section class="card">
+    <h2>أنت مين</h2>
+    <div class="two">
+      <div class="field"><label for="name">اسمك</label><input type="text" id="name" autocomplete="name"></div>
+      <div class="field"><label for="manager">مديرك المباشر</label><input type="text" id="manager"></div>
+    </div>
+    <div class="two">
+      <div class="field"><label for="dept">القسم</label>
+        <select id="dept">
+          <option value="">اختار</option>
+          <option>Tech Team</option>
+          <option>Customer Success</option>
+          <option>Outdoor Sales</option>
+          <option>Founders</option>
+        </select></div>
+      <div class="field"><label for="group">الـ group أو المشروع اللي انت فيه</label>
+        <input type="text" id="group" list="groups" placeholder="اختار أو اكتب">
+        <datalist id="groups">
+          <option value="Clara"><option value="Cluster Care"><option value="Cluster Procurement"><option value="Cluster Pharmacy"><option value="Cluster Supply"><option value="Cluster Intelligence"><option value="Data Mapping">
+          <option value="Order Fulfilment"><option value="Customer Service"><option value="Customer Activation"><option value="Customer Engagement"><option value="Customer Visits">
+        </datalist></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>شغلك<small>اكتب زي ما بتتكلم. مش محتاج صياغة ولا ترتيب.</small></h2>
+    <div class="field"><label for="q1">١. شغال على إيه حالياً؟ وإيه الفايدة اللي بترجع على الشركة منه؟</label>
+      <div class="ex">مثال: «شغال على ربط الـ ERP بتاع المورد بالـ app. الهدف إن الطلب يتحجز عند المورد أوتوماتيك من غير ما حد يتصل.»</div>
+      <textarea id="q1"></textarea></div>
+    <div class="field"><label for="q2">٢. بتنفذه إزاي خطوة خطوة؟ ومين بيشتغل معاك فيه؟</label>
+      <div class="ex">لو مش عارف تبدأ منين: اوصف يوم شغل عادي من أول ما تفتح اللابتوب لحد ما تقفله.</div>
+      <textarea id="q2"></textarea></div>
+  </section>
+
+  <section class="card">
+    <h2>٣. الـ tools اللي بتستخدمها<small>كل برنامج أو service أو account بتشتغل عليه، حتى لو بسيط: Azure، Claude، Lovable، GitHub، Excel، Google Sheets، WhatsApp، الـ dashboard، أي حاجة.</small></h2>
+    <div class="tools" id="tools"></div>
+    <div><button type="button" class="btn" id="addTool">+ ضيف tool تاني</button></div>
+  </section>
+
+  <section class="card">
+    <h2>رأيك<small>ده أهم جزء. الكلام هنا هو اللي هيغيّر حاجة.</small></h2>
+    <div class="field"><label for="q3">٤. إيه اللي بيعطّلك أو بياخد منك وقت أكتر من اللازم؟</label>
+      <div class="ex">مثال: «كل يوم بقعد ساعة أنقل بيانات من sheet لـ sheet بإيدي.»</div>
+      <textarea id="q3"></textarea></div>
+    <div class="field"><label for="q4">٥. لو إيدك مطلقة، إيه الحاجة اللي كنت هتعملها أحسن أو أرخص؟</label>
+      <textarea id="q4"></textarea></div>
+  </section>
+
+  <section class="card">
+    <label class="toggle"><input type="checkbox" id="isMgr"> أنا مسؤول عن فريق أو group</label>
+    <div id="mgr" class="mgr" hidden>
+      <div class="field"><label for="m1">٦. فريقك: الـ groups اللي عندك، كل group فيه مين، وشغال على إيه دلوقتي؟</label><textarea id="m1"></textarea></div>
+      <div class="field"><label for="m2">٧. كل group بيستهلك من أي resources أو credits؟ وبتتابع الاستهلاك إزاي؟</label><textarea id="m2"></textarea></div>
+      <div class="field"><label for="m3">للـ tech بس: وضع الـ GitHub</label>
+        <div class="hint">الـ repos تحت organisation واحد ولا متفرقة على حسابات شخصية؟ مين عنده access على إيه؟</div>
+        <textarea id="m3"></textarea></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="actions">
+      <button type="button" class="btn primary" id="gen">جهّز الرد</button>
+      <span class="hint">كلامك بيتحفظ على جهازك لحد ما تبعته، فمش هتخسر حاجة لو قفلت الصفحة.</span>
+    </div>
+    <p class="warn" id="missing" hidden>في أسئلة فاضية. الرد اتجهّز بس يا ريت تكمّلها قبل ما تبعت.</p>
+    <div id="out" hidden>
+      <pre id="text"></pre>
+      <div class="actions">
+        <button type="button" class="btn primary" id="copy">انسخ الرد</button>
+        <span id="copied" class="done" hidden>اتنسخ. افتح WhatsApp وابعته لمديرك.</span>
+      </div>
+      <p class="send">لو تحب تبعته بالإيميل: <span class="email">moustafa.elawamy@clusterapp.net</span></p>
+    </div>
+  </section>
+
+  <p class="foot">Cluster · أكتوبر 2026</p>
+</main>
+</div>
+
+<script>
+(function(){
+  var ids=['name','dept','group','manager','q1','q2','q3','q4','m1','m2','m3'];
+  var KEY='cluster-workmap-draft';
+  var tools=document.getElementById('tools');
+  function toolRow(v){
+    v=v||{};
+    var d=document.createElement('div');d.className='tool';
+    d.innerHTML='<input type="text" placeholder="اسم الـ tool" class="tn" aria-label="اسم الـ tool"><input type="text" placeholder="بأي account بتدخل" class="ta" aria-label="الـ account"><select class="tc" aria-label="التكلفة"><option value="">بيكلّف إيه؟</option><option>مجاني</option><option>مدفوع</option><option>من credits</option><option>مش عارف</option></select><input type="text" placeholder="بتستخدمه في إيه" class="tu" aria-label="الاستخدام"><button type="button" class="x" aria-label="امسح">×</button>';
+    d.querySelector('.tn').value=v.n||'';d.querySelector('.ta').value=v.a||'';d.querySelector('.tc').value=v.c||'';d.querySelector('.tu').value=v.u||'';
+    d.querySelector('.x').addEventListener('click',function(){d.remove();save();});
+    tools.appendChild(d);
+  }
+  function readTools(){return Array.prototype.map.call(tools.querySelectorAll('.tool'),function(r){return{n:r.querySelector('.tn').value.trim(),a:r.querySelector('.ta').value.trim(),c:r.querySelector('.tc').value,u:r.querySelector('.tu').value.trim()}}).filter(function(t){return t.n||t.a||t.u});}
+  function state(){var s={};ids.forEach(function(i){s[i]=document.getElementById(i).value});s.tools=readTools();s.mgr=document.getElementById('isMgr').checked;return s;}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state()))}catch(e){}}
+  function load(){var s=null;try{s=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+    if(s){ids.forEach(function(i){if(s[i]!=null)document.getElementById(i).value=s[i]});(s.tools||[]).forEach(toolRow);document.getElementById('isMgr').checked=!!s.mgr;}
+    if(!tools.children.length){toolRow();toolRow();toolRow();}
+    document.getElementById('mgr').hidden=!document.getElementById('isMgr').checked;}
+  document.getElementById('addTool').addEventListener('click',function(){toolRow();});
+  document.getElementById('isMgr').addEventListener('change',function(e){document.getElementById('mgr').hidden=!e.target.checked;save();});
+  document.addEventListener('input',save);document.addEventListener('change',save);
+  function line(l,v){v=(v||'').trim();return v?l+'\n'+v+'\n\n':'';}
+  document.getElementById('gen').addEventListener('click',function(){
+    var s=state();
+    var t='خريطة الشغل في Cluster\n\n';
+    t+='الاسم: '+(s.name||'')+'\n';
+    t+='القسم: '+(s.dept||'')+'\n';
+    t+='الـ group / المشروع: '+(s.group||'')+'\n';
+    t+='المدير المباشر: '+(s.manager||'')+'\n\n';
+    t+=line('١. شغال على إيه والفايدة منه:',s.q1);
+    t+=line('٢. بنفذه إزاي ومع مين:',s.q2);
+    if(s.tools.length){t+='٣. الـ tools:\n';s.tools.forEach(function(x){t+='- '+[x.n,x.a,x.c,x.u].filter(Boolean).join(' | ')+'\n';});t+='\n';}
+    t+=line('٤. اللي بيعطّلني أو بياخد وقت:',s.q3);
+    t+=line('٥. لو إيدي مطلقة:',s.q4);
+    if(s.mgr){t+='— كمسؤول فريق —\n\n';t+=line('٦. فريقي والـ groups:',s.m1);t+=line('٧. الـ resources لكل group:',s.m2);t+=line('وضع الـ GitHub:',s.m3);}
+    var req=['name','dept','q1','q2','q3'];var miss=req.some(function(i){return !(s[i]||'').trim()})||!s.tools.length;
+    document.getElementById('missing').hidden=!miss;
+    document.getElementById('text').textContent=t.trim();
+    document.getElementById('out').hidden=false;
+    document.getElementById('copied').hidden=true;
+    document.getElementById('out').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var pre=document.getElementById('text');var ok=function(){document.getElementById('copied').hidden=false;};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(pre);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);try{document.execCommand('copy');ok();}catch(e){}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(pre.textContent).then(ok,fallback);}else{fallback();}
+  });
+  load();
+})();
+</script>
+
+</body>
+</html>
