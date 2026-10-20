@@ -74,17 +74,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-of
       <select id="dept"><option value="">اختار</option><option>Tech Team</option><option>Customer Success</option><option>Sales</option><option>Founders</option></select>
       <span class="msg">اختار القسم</span></div>
     <div class="field"><label for="group">شغال في أي group أو مشروع؟ <span style="font-weight:400;color:var(--muted)">(لو مفيش، سيبه فاضي)</span></label>
-      <input type="text" id="group" list="groups" placeholder="اختار أو اكتب">
-      <datalist id="groups"><option value="Clara"><option value="Cluster Care"><option value="Cluster Procurement"><option value="Cluster Pharmacy"><option value="Cluster Supply"><option value="Cluster Intelligence"><option value="Data Mapping"><option value="Order Fulfilment"><option value="Customer Service"><option value="Customer Activation"><option value="Customer Visits"></datalist></div>
+      <input type="text" id="group" placeholder="اكتب اسم المشروع أو الشغل اللي انت فيه"></div>
   </section>
 
   <section class="card">
     <h2>شغلك اليومي<small>اكتب زي ما بتتكلم. مش محتاج ترتيب ولا صياغة.</small></h2>
     <div class="field" id="f-q1"><label for="q1">١. يومك بيمشي إزاي؟ اكتب شغلك من أول اليوم لآخره، خطوة خطوة، حتى الحاجات الصغيرة.</label>
-      <div class="ex">مثال: «الصبح بفتح الطلبات الجديدة، بتصل بالعميل أأكد، بكتب الطلب في الشيت، بعدها ببعته للمورد على واتساب...»</div>
+      <div class="ex">مثال من الـ operations: «الصبح بفتح الطلبات الجديدة، بتصل بالعميل أأكد، بكتب الطلب في الشيت، وببعته للمورد على واتساب...»<br>مثال من الـ tech: «بفتح الـ tasks بتاعتي، بشوف الـ bugs اللي جات، بشتغل على الـ feature، بعمل test على جهازي، بعدها بعمل push وبستنى review...»</div>
       <textarea id="q1"></textarea><span class="msg">السؤال ده أهم سؤال، اكتب فيه براحتك</span></div>
     <div class="field" id="f-q2"><label for="q2">٢. إيه الحاجات اللي بتعملها كل يوم أو كل أسبوع بنفس الطريقة؟ وكل واحدة بتاخد منك وقت قد إيه تقريباً؟</label>
-      <div class="ex">زي: تجهيز تقرير، نقل بيانات، متابعة طلبات، مكالمات...</div>
+      <div class="ex">زي: تجهيز تقرير، نقل بيانات من مكان لمكان، متابعة طلبات، مكالمات، testing يدوي، deploy، مراجعة data، ردود على نفس الأسئلة...</div>
       <textarea id="q2"></textarea><span class="msg">اكتب ولو حاجة واحدة</span></div>
   </section>
 
