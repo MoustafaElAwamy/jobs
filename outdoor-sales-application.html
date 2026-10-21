@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مطور اعمال Outdoor Sales – كلاستر، إسكندرية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FC;--card:#FFFFFF;--fg:#15223A;--muted:#5C6B85;--line:#D7E1F0;--blue:#0E4DA4;--blue-deep:#0B3D83;--blue-soft:#E8EFFA;--ok:#1B7F4C;--err:#B4541B;--font:"IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.75}
+.topbar{background:#fff;border-bottom:1px solid #E3EAF5}
+.in{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.topbar .in{padding-block:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar img{height:46px;width:auto;display:block}
+.topbar .tag{font-size:14px;color:var(--muted);font-weight:500}
+.band{background:var(--blue);color:#fff}
+.band .in{padding-block:36px 32px}
+h1{font-size:clamp(27px,4.6vw,36px);line-height:1.3;margin:0 0 12px;font-weight:700}
+.lead{font-size:17px;line-height:1.85;margin:0;max-width:600px}
+.wrap{padding-block:24px 64px;display:grid;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;display:grid;gap:20px}
+.card h2{font-size:20px;margin:0;font-weight:700;color:var(--blue)}
+.card h2 small{display:block;font-size:15px;font-weight:400;color:var(--muted);margin-top:4px;line-height:1.6}
+.field{display:grid;gap:8px}
+label,.q{font-weight:600;font-size:17px;line-height:1.55}
+.hint{color:var(--muted);font-size:14.5px;line-height:1.65;margin:-4px 0 0}
+.ex{color:var(--muted);font-size:14.5px;line-height:1.65;background:var(--blue-soft);border-radius:10px;padding:10px 14px}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;font-weight:500;font-size:16px;cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:11px 14px;background:#fff}
+.opt:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+.opt input{width:20px;height:20px;accent-color:var(--blue);flex:0 0 auto}
+.grid{display:grid;gap:14px}
+.rate{display:grid;gap:8px;padding:12px 14px;border:1px solid var(--line);border-radius:10px}
+.rate .row{display:flex;gap:6px;flex-wrap:wrap}
+.rate .row label{flex:1 1 0;min-width:44px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 0;font-weight:600;cursor:pointer;background:#fff}
+.rate .row label:has(input:checked){background:var(--blue);color:#fff;border-color:var(--blue)}
+.rate .row input{position:absolute;opacity:0;pointer-events:none}
+.field.bad input[type=text],.field.bad input[type=email],.field.bad input[type=tel],.field.bad textarea{border-color:var(--err)}
+.field.bad .opts,.field.bad .rate{border-color:var(--err)}
+.msg{display:none;color:var(--err);font-size:14.5px}
+.field.bad .msg,.bad-note .msg{display:block}
+.btn.primary{font:inherit;font-weight:700;font-size:19px;border-radius:10px;padding:15px 34px;width:100%;cursor:pointer;border:1px solid var(--blue);background:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--blue-deep)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.note{color:var(--muted);font-size:14.5px;text-align:center;margin:0}
+.err{color:var(--err);text-align:center;font-weight:600;margin:0}
+.thanks{text-align:center;padding:40px 20px}
+.thanks h2{font-size:26px;color:var(--blue);margin:0 0 10px}
+.thanks p{margin:0;color:var(--muted)}
+.foot{color:var(--muted);font-size:14px;text-align:center;margin:0}
+.hide{display:none}
+.en{display:block;font-weight:400;color:var(--muted);font-size:14.5px;line-height:1.6;direction:ltr;text-align:left;margin-top:2px}
+.card h2 .en{font-size:15px;margin-top:4px}
+.thanks .en-only{direction:ltr;text-align:left;font-size:15px;margin-top:14px}
+.thanks .mail{direction:ltr;font-size:20px;font-weight:700;color:var(--blue);margin-top:12px}
+.ex .en{margin-top:12px}
+h1 .en{font-size:17px;font-weight:500;opacity:.9;margin-top:8px;direction:ltr;text-align:left}
+.lead .en{display:block;margin-top:10px;font-size:15px;opacity:.9;direction:ltr;text-align:left}
+.thanks h2 .en{display:block}
+.band .en,.band h1 .en,.band .lead .en{color:#DCE7F8;opacity:1}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="in">
+    <img alt="Cluster — Intelligence Hub" src="data:image/png;base64,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">
+    <span class="tag">أكتوبر 2026</span>
+  </div>
+</header>
+
+<section class="band">
+  <div class="in">
+    <h1>مطور اعمال "سيلز اوت دور" – كلاستر، إسكندرية<span class="en">Outdoor Sales Specialist – Cluster, Alexandria</span></h1>
+    <p class="lead">أهلاً بيك. خد وقتك وجاوب بصراحة، مفيش إجابة صح وغلط. إحنا بندور على ناس بتحب الاوت دورز ده والعمل الميداني .<span class="en">Answer honestly and in your own words; there are no right or wrong answers. Questions are in Arabic with an English line under each. We are looking for people who will genuinely love this job and grow with us.</span></p>
+  </div>
+</section>
+
+<main class="in wrap">
+  <form id="app" novalidate>
+
+    <div class="card">
+      <h2 class="hide"></h2>
+      <div class="field" data-req="1">
+        <label for="name">اسمك بالكامل *<span class="en">Full name</span></label>
+        <input type="text" id="name" autocomplete="name">
+        <p class="msg">محتاجين اسمك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="phone">رقم الموبايل (اللي عليه واتساب) *<span class="en">Mobile number with WhatsApp. Example: 01012345678</span></label>
+        <p class="hint">مثال: 01012345678</p>
+        <input type="tel" id="phone" inputmode="tel" autocomplete="tel">
+        <p class="msg">اكتب رقم موبايل صحيح</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="email">الإيميل *<span class="en">Email</span></label>
+        <input type="email" id="email" autocomplete="email">
+        <p class="msg">اكتب إيميل صحيح</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="hide"></h2>
+      <div class="field" data-req="1" data-radio="res">
+        <span class="q">ساكن فين دلوقتي؟ *<span class="en">Where do you live now?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="res" value="في إسكندرية"> في إسكندرية</label>
+          <label class="opt"><input type="radio" name="res" value="برّه إسكندرية، بس أقدر أنتقل"> برّه إسكندرية، بس أقدر أنتقل</label>
+          <label class="opt"><input type="radio" name="res" value="برّه إسكندرية ومش هقدر أنتقل"> برّه إسكندرية ومش هقدر أنتقل</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="0">
+        <label for="area">لو ساكن في إسكندرية: في أنهي منطقة؟<span class="en">If you live in Alexandria: which area? (e.g. Smouha, Miami, Agami, Mansheya)</span></label>
+        <input type="text" id="area" placeholder="مثال: سموحة، ميامي، العجمي، المنشية">
+      </div>
+      <div class="field" data-req="1" data-radio="transport">
+        <span class="q">هتتنقل إزاي بين الصيدليات؟ *<span class="en">How will you move between pharmacies?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="transport" value="على رجلي ومواصلات عامة"> على رجلي ومواصلات عامة</label>
+          <label class="opt"><input type="radio" name="transport" value="موتوسيكل"> موتوسيكل</label>
+          <label class="opt"><input type="radio" name="transport" value="عربية"> عربية</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>خبرتك<small>Your experience</small></h2>
+      <div class="field" data-req="1" data-radio="edu">
+        <span class="q">أعلى مؤهل دراسي *<span class="en">Highest qualification</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="edu" value="ثانوية عامة أو أقل"> ثانوية عامة أو أقل</label>
+          <label class="opt"><input type="radio" name="edu" value="دبلوم متوسط أو فوق المتوسط"> دبلوم متوسط أو فوق المتوسط</label>
+          <label class="opt"><input type="radio" name="edu" value="بكالوريوس أو ليسانس"> بكالوريوس أو ليسانس</label>
+          <label class="opt"><input type="radio" name="edu" value="دراسات عليا"> دراسات عليا</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="uni">الجامعة أو المعهد، الكلية، التخصص، وسنة التخرج (أو المتوقعة) *<span class="en">University or institute, faculty, major, and graduation year (or expected). Example: Alexandria University, Faculty of Commerce, Marketing, 2023</span></label>
+        <textarea id="uni" rows="2"></textarea>
+        <p class="msg">اكتب بياناتك التعليمية</p>
+      </div>
+      <div class="field" data-req="1" data-radio="status">
+        <span class="q">حالتك دلوقتي *<span class="en">Your current status</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="status" value="لسه بدرس"> لسه بدرس</label>
+          <label class="opt"><input type="radio" name="status" value="خريج من أقل من سنة"> خريج من أقل من سنة</label>
+          <label class="opt"><input type="radio" name="status" value="خريج من سنة لـ 3 سنين"> خريج من سنة لـ 3 سنين</label>
+          <label class="opt"><input type="radio" name="status" value="خريج من أكتر من 3 سنين"> خريج من أكتر من 3 سنين</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1" data-radio="exp">
+        <span class="q">عندك خبرة في المبيعات الاوت دورز؟ *<span class="en">Field sales experience</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="exp" value="لأ، لسه"> لأ، لسه</label>
+          <label class="opt"><input type="radio" name="exp" value="أقل من سنة"> أقل من سنة</label>
+          <label class="opt"><input type="radio" name="exp" value="من سنة لسنتين"> من سنة لسنتين</label>
+          <label class="opt"><input type="radio" name="exp" value="أكتر من سنتين"> أكتر من سنتين</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="sold">كنت بتبيع إيه، ولمين؟ واحكيلنا عن أكبر صفقة أو إنجاز حققته. *<span class="en">What did you sell, to whom, and what is your biggest win? If you have never sold before, tell us about the closest thing you have done.</span></label>
+        <textarea id="sold"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1" data-check="pharma">
+        <span class="q">اشتغلت قبل كده في مجال الأدوية أو مع صيدليات؟ (اختار كل اللي ينطبق) *<span class="en">Pharma or pharmacy experience. Choose all that apply.</span></span>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="pharma" value="مندوب علمي"> مندوب علمي</label>
+          <label class="opt"><input type="checkbox" name="pharma" value="مبيعات لموزع أو شركة أدوية"> مبيعات لموزع أو شركة أدوية</label>
+          <label class="opt"><input type="checkbox" name="pharma" value="اشتغلت في صيدلية"> اشتغلت في صيدلية</label>
+          <label class="opt"><input type="checkbox" name="pharma" value="مبيعات لصيدليات في مجال تاني (مستحضرات، أجهزة، سلع استهلاكية...)"> مبيعات لصيدليات في مجال تاني (مستحضرات، أجهزة، سلع استهلاكية...)</label>
+          <label class="opt"><input type="checkbox" name="pharma" value="لأ، مشتغلتش في المجال"> لأ، مشتغلتش في المجال</label>
+        </div>
+        <p class="msg">اختار واحدة على الأقل</p>
+      </div>
+      <div class="field" data-req="1" data-radio="tenure">
+        <span class="q">أطول مدة فضلتها في شركة؟ *<span class="en">Longest time you stayed in one job</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="tenure" value="لسه مشتغلتش"> لسه مشتغلتش</label>
+          <label class="opt"><input type="radio" name="tenure" value="أقل من 6 شهور"> أقل من 6 شهور</label>
+          <label class="opt"><input type="radio" name="tenure" value="من 6 شهور لسنة"> من 6 شهور لسنة</label>
+          <label class="opt"><input type="radio" name="tenure" value="من سنة لسنتين"> من سنة لسنتين</label>
+          <label class="opt"><input type="radio" name="tenure" value="أكتر من سنتين"> أكتر من سنتين</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="left">ليه سبت آخر شغلانة؟ (أو لو لسه شغال، ليه بتدور على غيرها؟) *<span class="en">Why did you leave your last job? Or, if you are still working, why are you looking?</span></label>
+        <textarea id="left"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>طبيعة الشغل مع كلاستر<small>The job, honestly</small></h2>
+      <div class="ex"><span class="ar">طبيعة الشغل مع كلاستر<br>خلينا نكون واضحين من البداية، عشان نوفر وقتك ووقتنا:<br>• الشغل اوت دور: زيارات ميدانية يومية للصيدليات.<br>• في أهداف يومية.<br>• المرتب الثابت مربوط بالتزامك اليومي: عدد الزيارات الميدانية، تفاعلك مع الفريق، وتنسيق مهامك اليومية على أكمل وجه. مش مرتب بيتقبض آخر الشهر من غير اداء فعال.<br>• العمولة مفتوحة من غير حد أقصى. اللي بيقبض كويس هنا هو اللي بيبيع كويس.<br>• هتاخد تدريب قوي وأدوات ذكية وفريق كامل وراك. بس الشارع والإقناع عليك.</span><span class="en">The job, honestly<br>Let's be clear from the start, so we both save time:<br>• Outdoor sales: daily field visits to pharmacies.<br>• Daily targets.<br>• Your fixed salary is tied to your daily commitment: field visits, teamwork, and how well you organise your daily tasks. It is not paid at the end of the month without effective performance.<br>• Commission is uncapped. Whoever earns well here is whoever sells well.<br>• You get strong training, smart tools and a full team behind you. But the street and persuasion are on you.</span></div>
+      <div class="field" data-req="1" data-radio="fit">
+        <span class="q">قريت اللي فوق؟ لسه عايز تكمل؟ *<span class="en">Read that? Still in?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="fit" value="أيوه، ده بالظبط اللي بدور عليه"> أيوه، ده بالظبط اللي بدور عليه</label>
+          <label class="opt"><input type="radio" name="fit" value="مهتم، بس عندي أسئلة"> مهتم، بس عندي أسئلة</label>
+          <label class="opt"><input type="radio" name="fit" value="لأ، الشغل ده مش ليا"> لأ، الشغل ده مش ليا</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="hard">إيه أكتر نقطة من اللي فوق ممكن تكون صعبة عليك؟ وليه؟ *<span class="en">Which point above would be hardest for you, and why? Honest answers score higher than perfect ones.</span></label>
+        <textarea id="hard"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>مواقف من الشارع<small>Street situations<br>أربع مواقف هتقابلها فعلاً. إجابات قصيرة ومحددة من فضلك.<br>Four situations you will actually face. Short, specific answers please.</small></h2>
+      <div class="field" data-req="1">
+        <label for="s1">صيدلي قالك: "أنا شغال على تطبيق تاني بيديني كاش باك على كل أوردر، أسيبه وأستخدم كلاستر ليه؟" هترد عليه تقول إيه؟ *<span class="en">A pharmacist says: "I use another app that gives me cashback on every order. Why would I leave it for Cluster?" What do you say?</span></label>
+        <textarea id="s1"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="s2">مورد كلّم صيدلي من عملائك وقاله: "اطلب مني على طول بدل كلاستر، وهديك خصم أعلى في كام صنف." الصيدلي حكالك. هتتصرف إزاي؟ *<span class="en">A supplier called one of your pharmacies and said: "Order from me directly instead of through Cluster, and I will give you a higher discount on a few items." The pharmacist tells you about it. What do you do?</span></label>
+        <textarea id="s2"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="s3">عملت زيارات كتير النهارده، ومعظمهم قالوا لأ. هتعمل إيه الصبح تاني يوم؟ *<span class="en">You made many visits today and most of them said no. What do you do tomorrow morning?</span></label>
+        <textarea id="s3"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="s4">صيدلية فعّلت التطبيق من أسبوعين وللنهارده معملتش ولا أوردر. هتتصرف إزاي؟ *<span class="en">A pharmacy activated two weeks ago and has not ordered once. What do you do?</span></label>
+        <textarea id="s4"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>إنت مين في الشغل<small>How you work</small></h2>
+      <div class="field" data-req="1">
+        <label for="learn">احكيلنا عن حاجة اتعلمتها لوحدك خالص، من غير كورس ولا حد علّمهالك. *<span class="en">Something you taught yourself. No course, no teacher.</span></label>
+        <textarea id="learn"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="step">آخر مرة أخدت خطوة من نفسك من غير ما حد يطلب منك، في شغل أو في حياتك؟ إيه اللي حصل؟ *<span class="en">The last time you took initiative without being asked. What happened?</span></label>
+        <textarea id="step"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1">
+        <label for="pull">إيه اللي بيشدّك للمبيعات؟ وليه الشارع مش المكتب؟ *<span class="en">What draws you to sales, and why outdoor rather than a desk?</span></label>
+        <textarea id="pull"></textarea>
+        <p class="msg">اكتب إجابتك</p>
+      </div>
+      <div class="field" data-req="1" data-rate="1">
+        <span class="q">قيّم نفسك بصراحة من 1 (ضعيف) لـ 5 (ممتاز) *<span class="en">Rate yourself honestly, 1 (weak) to 5 (excellent)</span></span>
+        <div class="rate" data-entry="persuade"><span>الإقناع والتفاوض</span><div class="row">
+          <label><input type="radio" name="persuade" value="1">1</label><label><input type="radio" name="persuade" value="2">2</label><label><input type="radio" name="persuade" value="3">3</label><label><input type="radio" name="persuade" value="4">4</label><label><input type="radio" name="persuade" value="5">5</label></div></div>
+        <div class="rate" data-entry="patience"><span>الصبر مع العميل الصعب</span><div class="row">
+          <label><input type="radio" name="patience" value="1">1</label><label><input type="radio" name="patience" value="2">2</label><label><input type="radio" name="patience" value="3">3</label><label><input type="radio" name="patience" value="4">4</label><label><input type="radio" name="patience" value="5">5</label></div></div>
+        <div class="rate" data-entry="selflearn"><span>التعلم بسرعة لوحدي</span><div class="row">
+          <label><input type="radio" name="selflearn" value="1">1</label><label><input type="radio" name="selflearn" value="2">2</label><label><input type="radio" name="selflearn" value="3">3</label><label><input type="radio" name="selflearn" value="4">4</label><label><input type="radio" name="selflearn" value="5">5</label></div></div>
+        <div class="rate" data-entry="daily"><span>الالتزام بأرقام يومية</span><div class="row">
+          <label><input type="radio" name="daily" value="1">1</label><label><input type="radio" name="daily" value="2">2</label><label><input type="radio" name="daily" value="3">3</label><label><input type="radio" name="daily" value="4">4</label><label><input type="radio" name="daily" value="5">5</label></div></div>
+        <div class="rate" data-entry="explain"><span>شرح تطبيق لحد تقليدي</span><div class="row">
+          <label><input type="radio" name="explain" value="1">1</label><label><input type="radio" name="explain" value="2">2</label><label><input type="radio" name="explain" value="3">3</label><label><input type="radio" name="explain" value="4">4</label><label><input type="radio" name="explain" value="5">5</label></div></div>
+        <p class="msg">قيّم كل نقطة من 1 لـ 5</p>
+      </div>
+      <div class="field" data-req="1" data-radio="future">
+        <span class="q">شايف نفسك فين بعد سنتين؟ *<span class="en">Where do you see yourself in two years?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="future" value="سنيور سيلز أو قائد فريق في كلاستر"> سنيور سيلز أو قائد فريق في كلاستر</label>
+          <label class="opt"><input type="radio" name="future" value="مسؤول عن منطقة أو مدينة كاملة"> مسؤول عن منطقة أو مدينة كاملة</label>
+          <label class="opt"><input type="radio" name="future" value="في مجال تاني خالص"> في مجال تاني خالص</label>
+          <label class="opt"><input type="radio" name="future" value="لسه مش عارف"> لسه مش عارف</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>التفاصيل العملية<small>Practical details</small></h2>
+      <div class="field" data-req="1" data-radio="start">
+        <span class="q">متاح تبدأ إمتى؟ *<span class="en">When can you start?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="start" value="فوراً"> فوراً</label>
+          <label class="opt"><input type="radio" name="start" value="خلال أسبوعين"> خلال أسبوعين</label>
+          <label class="opt"><input type="radio" name="start" value="خلال شهر"> خلال شهر</label>
+          <label class="opt"><input type="radio" name="start" value="بعد أكتر من شهر"> بعد أكتر من شهر</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1" data-radio="working">
+        <span class="q">بتشتغل حالياً؟ *<span class="en">Are you currently working?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="working" value="أيوه، دوام كامل"> أيوه، دوام كامل</label>
+          <label class="opt"><input type="radio" name="working" value="أيوه، دوام جزئي"> أيوه، دوام جزئي</label>
+          <label class="opt"><input type="radio" name="working" value="لأ"> لأ</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      <div class="field" data-req="1" data-radio="source">
+        <span class="q">عرفت عن الوظيفة منين؟ *<span class="en">Where did you see this job?</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="source" value="لينكدإن"> لينكدإن</label>
+          <label class="opt"><input type="radio" name="source" value="فيسبوك"> فيسبوك</label>
+          <label class="opt"><input type="radio" name="source" value="إنستجرام"> إنستجرام</label>
+          <label class="opt"><input type="radio" name="source" value="من حد أعرفه"> من حد أعرفه</label>
+        </div>
+        <p class="msg">اختار واحدة</p>
+      </div>
+      
+      <div class="field" data-req="0">
+        <label for="link">لينك اللينكدإن (اختياري)<span class="en">LinkedIn profile link (optional).</span></label>
+        <input type="text" id="link" placeholder="linkedin.com/in/...">
+      </div>
+      <div class="field" data-req="0">
+        <label for="who">لو عرفت عن الوظيفة من حد: مين؟<span class="en">If someone told you about the job, who?</span></label>
+        <input type="text" id="who">
+      </div>
+      <div class="field" data-req="0">
+        <label for="extra">في حاجة عايزنا نعرفها عنك مسألناش عليها؟ (اختياري)<span class="en">Anything else we should know? (optional)</span></label>
+        <textarea id="extra"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="field" data-req="1" data-check="declare">
+        <label class="opt"><input type="checkbox" name="declare" value="أيوه"> أقرّ إن كل اللي كتبته صحيح، وإني قريت وصف الشغل كويس وفاهم طبيعته. *</label>
+        <p class="msg">لازم توافق عشان نكمل</p>
+      </div>
+      <button class="btn primary" id="send" type="submit">ابعت</button>
+      <p class="err hide" id="err">حصلت مشكلة في الإرسال، جرّب تاني بعد شوية.</p>
+      <p class="note">إجاباتك بتتسجل مباشرة، ومش هتخسر حاجة لو قفلت الصفحة قبل ما تبعت.</p>
+    </div>
+  </form>
+
+  <div class="card thanks hide" id="thanks">
+    <h2>شكراً إنك قدّمت معانا<span class="en">Thank you for applying</span></h2>
+    <p>بنقرا كل طلب بنفسنا. عشان نكمل الخطوة الجاية، من فضلك ابعت السيرة الذاتية المحدّثة على الإيميل ده، وخلّي عنوان الرسالة: Outdoor Sales (اسم مدينتك)</p>
+    <p class="mail">mahmoud@clusterapp.net</p>
+    <p class="en-only">We read every application ourselves. To continue, please email your updated CV to the address above, with the subject line: Outdoor Sales (your city name). We will be in touch soon.</p>
+  </div>
+  <p class="foot">Cluster · أكتوبر 2026</p>
+</main>
+
+<script>
+const FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSf-dA2O9znrVr6aJs1piR79dXTxTF74ble08atySHHb_YEe6g/formResponse";
+const E = {
+  name:"entry.1741207209", phone:"entry.776745877", email:"entry.898218028",
+  res:"entry.1526670377", area:"entry.917305976", transport:"entry.892949655",
+  edu:"entry.779469659", uni:"entry.1839793936", status:"entry.944340929", exp:"entry.749629846",
+  sold:"entry.1574009053", pharma:"entry.1556236383", tenure:"entry.107739963", left:"entry.1656330214",
+  fit:"entry.1398988188", hard:"entry.2080685037",
+  s1:"entry.1296612590", s2:"entry.1112652794", s3:"entry.1997475508", s4:"entry.467100568",
+  learn:"entry.1223632218", step:"entry.926363006", pull:"entry.344401062",
+  persuade:"entry.2122260816", patience:"entry.356769609", selflearn:"entry.321435704", daily:"entry.1614257537", explain:"entry.619169702",
+  future:"entry.476074580", start:"entry.326541169", working:"entry.1735619066", source:"entry.1253688243",
+  link:"entry.1505747466", who:"entry.837342237", extra:"entry.1445459892", declare:"entry.1202164311"
+};
+const form = document.getElementById("app");
+
+function val(id){ return document.getElementById(id).value.trim(); }
+function radio(name){ const r=form.querySelector(`input[name="${name}"]:checked`); return r ? r.value : ""; }
+function checks(name){ return [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value); }
+
+function validate(){
+  let ok = true;
+  form.querySelectorAll(".field.bad").forEach(f=>f.classList.remove("bad"));
+  const mark = (el)=>{ el.classList.add("bad"); if(ok){ el.scrollIntoView({behavior:"smooth",block:"center"}); } ok=false; };
+  form.querySelectorAll('.field[data-req="1"]').forEach(f=>{
+    let filled = true;
+    if(f.dataset.radio){ filled = !!radio(f.dataset.radio === "res" ? "res" : f.dataset.radio); }
+    else if(f.dataset.check){ filled = checks(f.dataset.check).length>0; }
+    else if(f.dataset.rate){ filled = ["persuade","patience","selflearn","daily","explain"].every(n=>radio(n)); }
+    else { const el=f.querySelector("input,textarea"); filled = !!(el && el.value.trim()); }
+    if(!filled) mark(f);
+  });
+  const phone = val("phone");
+  if(phone && !/^[0-9+\s-]{8,16}$/.test(phone)) mark(document.getElementById("phone").closest(".field"));
+  const email = val("email");
+  if(email && !/^\S+@\S+\.\S+$/.test(email)) mark(document.getElementById("email").closest(".field"));
+  return ok;
+}
+
+function buildBody(){
+  const p = new URLSearchParams();
+  const add = (k,v)=>{ if(v!==undefined && v!=="") p.append(k,v); };
+  add(E.name, val("name")); add(E.phone, val("phone")); add(E.email, val("email"));
+  add(E.res, radio("res")); add(E.area, val("area")); add(E.transport, radio("transport"));
+  add(E.edu, radio("edu")); add(E.uni, val("uni")); add(E.status, radio("status")); add(E.exp, radio("exp"));
+  add(E.sold, val("sold")); checks("pharma").forEach(v=>add(E.pharma,v));
+  add(E.tenure, radio("tenure")); add(E.left, val("left")); add(E.fit, radio("fit")); add(E.hard, val("hard"));
+  add(E.s1, val("s1")); add(E.s2, val("s2")); add(E.s3, val("s3")); add(E.s4, val("s4"));
+  add(E.learn, val("learn")); add(E.step, val("step")); add(E.pull, val("pull"));
+  add(E.persuade, radio("persuade")); add(E.patience, radio("patience")); add(E.selflearn, radio("selflearn"));
+  add(E.daily, radio("daily")); add(E.explain, radio("explain"));
+  add(E.future, radio("future")); add(E.start, radio("start")); add(E.working, radio("working")); add(E.source, radio("source"));
+  add(E.link, val("link")); add(E.who, val("who")); add(E.extra, val("extra")); add(E.declare, checks("declare")[0] || "");
+  return p;
+}
+
+form.addEventListener("submit", async (ev)=>{
+  ev.preventDefault();
+  document.getElementById("err").classList.add("hide");
+  if(!validate()) return;
+  const btn = document.getElementById("send");
+  btn.disabled = true; btn.textContent = "بنبعت...";
+  try{
+    // Google Forms does not return CORS headers, so the response is opaque; the submission still lands in the linked sheet.
+    await fetch(FORM_ACTION, { method:"POST", mode:"no-cors", body: buildBody() });
+    form.classList.add("hide");
+    document.getElementById("thanks").classList.remove("hide");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }catch(e){
+    document.getElementById("err").classList.remove("hide");
+    btn.disabled = false; btn.textContent = "ابعت";
+  }
+});
+</script>
+</body>
+</html>
